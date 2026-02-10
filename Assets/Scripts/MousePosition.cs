@@ -1,0 +1,18 @@
+using UnityEngine;
+
+public class MousePosition : MonoBehaviour
+{
+    [SerializeField] private Camera mainCamera;
+
+    private void Update()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast (ray, out RaycastHit raycastHit)) {
+
+            transform.position = raycastHit.point;
+            Debug.Log (Input.mousePosition);
+
+        }
+        
+    }
+}
